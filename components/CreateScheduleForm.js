@@ -499,7 +499,7 @@ function CreateScheduleForm({ obj }) {
       <FloatingLabel controlId="floatingInput3" label="Event 4 Name" className="mb-3">
         <Form.Control
           placeholder="Event 4 Name"
-          name="eventThreeName"
+          name="eventFourName"
           value={formInput.eventFourName}
           onChange={handleChange}
           required
