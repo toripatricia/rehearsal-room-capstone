@@ -24,6 +24,24 @@ const createProduction = (payload) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
+const getAllProductions = () => new Promise((resolve, reject) => {
+  fetch(`${dbUrl}/books.json`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      if (data) {
+        resolve(Object.values(data));
+      } else {
+        resolve([]);
+      }
+    })
+    .catch(reject);
+});
+
 const updateProduction = (payload) => new Promise((resolve, reject) => {
   fetch(`${dbUrl}/productions/${payload.firebaseKey}.json`, {
     method: 'PATCH',
@@ -49,4 +67,6 @@ const deleteProduction = (firebaseKey) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
-export { createProduction, updateProduction, deleteProduction };
+export {
+  createProduction, updateProduction, deleteProduction, getAllProductions,
+};

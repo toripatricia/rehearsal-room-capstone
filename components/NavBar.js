@@ -26,6 +26,12 @@ export default function NavBar() {
             <Link passHref href="/userForm">
               <Nav.Link>User Sign Up</Nav.Link>
             </Link>
+            <Link passHref href="/createSchedule">
+              <Nav.Link>Create Daily Schedule</Nav.Link>
+            </Link>
+            <Link passHref href="/schedule">
+              <Nav.Link>View Daily Schedule</Nav.Link>
+            </Link>
             <Button variant="danger" onClick={signOut}>Sign Out</Button>
           </Nav>
         </Navbar.Collapse>

@@ -2,8 +2,8 @@ import { clientCredentials } from '../utils/client';
 
 const dbUrl = clientCredentials.databaseURL;
 
-const createUser = (payload) => new Promise((resolve, reject) => {
-  fetch(`${dbUrl}/users.json`, {
+const createSchedule = (payload) => new Promise((resolve, reject) => {
+  fetch(`${dbUrl}/schedule.json`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -13,7 +13,7 @@ const createUser = (payload) => new Promise((resolve, reject) => {
     .then((response) => response.json())
     .then((data) => {
       const setcode = { firebaseKey: data.name };
-      fetch(`${dbUrl}/users/${setcode.firebaseKey}.json`, {
+      fetch(`${dbUrl}/schedule/${setcode.firebaseKey}.json`, {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',
@@ -24,8 +24,8 @@ const createUser = (payload) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
-const updateUser = (payload) => new Promise((resolve, reject) => {
-  fetch(`${dbUrl}/users/${payload.firebaseKey}.json`, {
+const updateSchedule = (payload) => new Promise((resolve, reject) => {
+  fetch(`${dbUrl}/schedule/${payload.firebaseKey}.json`, {
     method: 'PATCH',
     headers: {
       'Content-Type': 'application/json',
@@ -37,20 +37,8 @@ const updateUser = (payload) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
-const getProductionsUsers = (pFBK) => new Promise((resolve, reject) => {
-  fetch(`${dbUrl}/users.json?orderBy="productionId"&equalTo="${pFBK}"`, {
-    method: 'GET',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-  })
-    .then((response) => response.json())
-    .then((data) => resolve(Object.values(data)))
-    .catch(reject);
-});
-
-const deleteUser = (firebaseKey) => new Promise((resolve, reject) => {
-  fetch(`${dbUrl}/users/${firebaseKey}.json`, {
+const deleteSchedule = (firebaseKey) => new Promise((resolve, reject) => {
+  fetch(`${dbUrl}/schedule/${firebaseKey}.json`, {
     method: 'DELETE',
     headers: {
       'Content-Type': 'application/json',
@@ -61,8 +49,8 @@ const deleteUser = (firebaseKey) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
-const getSingleUser = (firebaseKey) => new Promise((resolve, reject) => {
-  fetch(`${dbUrl}/users/${firebaseKey}.json`, {
+const getSingleSchedule = (firebaseKey) => new Promise((resolve, reject) => {
+  fetch(`${dbUrl}/schedule/${firebaseKey}.json`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
@@ -74,5 +62,8 @@ const getSingleUser = (firebaseKey) => new Promise((resolve, reject) => {
 });
 
 export {
-  createUser, updateUser, deleteUser, getProductionsUsers, getSingleUser,
+  createSchedule,
+  deleteSchedule,
+  updateSchedule,
+  getSingleSchedule,
 };
