@@ -49,15 +49,15 @@ const deleteSchedule = (firebaseKey) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
-const getSingleSchedule = (firebaseKey) => new Promise((resolve, reject) => {
-  fetch(`${dbUrl}/schedule/${firebaseKey}.json`, {
+const getAllSchedules = () => new Promise((resolve, reject) => {
+  fetch(`${dbUrl}/schedule.json`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
     },
   })
     .then((response) => response.json())
-    .then((data) => resolve(data))
+    .then((data) => resolve(Object.values(data)))
     .catch(reject);
 });
 
@@ -65,5 +65,5 @@ export {
   createSchedule,
   deleteSchedule,
   updateSchedule,
-  getSingleSchedule,
+  getAllSchedules,
 };
