@@ -1,6 +1,6 @@
 import CreateAdminForm from '../components/CreateAdminForm';
 
-export default function createAdmin() {
+export default function createAdminPage() {
   return (
     <CreateAdminForm />
   );

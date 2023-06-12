@@ -19,7 +19,7 @@ function ScheduleCard() {
     <>
       <Link href="/schedule" passHref>
         <Card style={{
-          height: '2000px',
+          height: '800px',
           width: '400px',
           margin: '10px',
           cursor: 'pointer',
