@@ -61,9 +61,22 @@ const getAllSchedules = () => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
+const getSingleSchedule = (firebaseKey) => new Promise((resolve, reject) => {
+  fetch(`${dbUrl}/schedule/${firebaseKey}.json`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => resolve(data))
+    .catch(reject);
+});
+
 export {
   createSchedule,
   deleteSchedule,
   updateSchedule,
   getAllSchedules,
+  getSingleSchedule,
 };

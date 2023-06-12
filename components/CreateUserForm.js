@@ -1,49 +1,40 @@
+/* eslint-disable react/require-default-props */
 /* eslint-disable react/destructuring-assignment */
-/* eslint-disable react-hooks/rules-of-hooks */
-/* eslint-disable jsx-a11y/label-has-associated-control */
-/* eslint-disable jsx-a11y/label-has-for */
+/* eslint-disable brace-style */
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import { Form, Button } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 import { useAuth } from '../utils/context/authContext';
-import { createAdmin, getSingleAdmin, updateAdmin } from '../api/adminData';
-// import { getAllProductions } from '../api/productionData';
+import { createUser, getSingleUser, updateUser } from '../api/userData';
 
 const initialState = {
   name: '',
   email: '',
   role: '',
+  debut: false,
 };
 
-export default function CreateAdminForm(obj) {
-  // States for registration
+export default function CreateUserForm(obj) {
   const [formInput, setFormInput] = useState([]);
   const router = useRouter();
-  // const [productions, setProductions] = useState([]);
   const { user } = useAuth();
 
   useEffect(() => {
     if (obj.firebaseKey) setFormInput(obj);
   }, [obj]);
 
-  // useEffect(() => {
-  //   getAllProductions().then(setProductions);
-
-  //   if (obj.firebaseKey) setFormInput(obj);
-  // }, [obj, user]);
-
-  // Handling the form submission
   const handleSubmit = (e) => {
     e.preventDefault();
     if (obj.firebaseKey) {
-      getSingleAdmin().then(() => router.push('/'));
+      getSingleUser().then(() => router.push('/'));
     } else {
       const payload = { ...formInput, uid: user.uid };
-      createAdmin(payload).then(({ name }) => {
+      createUser(payload).then(({ name }) =>
+      {
         const patchPayload = { firebaseKey: name };
-        updateAdmin(patchPayload).then(() => {
+        updateUser(patchPayload).then(() => {
           router.push('/');
         });
       });
@@ -61,7 +52,7 @@ export default function CreateAdminForm(obj) {
   return (
     <>
       <div className="form">
-        <h1>Admin Registration</h1>
+        <h1>User Registration</h1>
       </div>
       <Form onSubmit={handleSubmit}>
         <h2 className="text-black mt-5">Create Your Profile</h2>
@@ -90,6 +81,17 @@ export default function CreateAdminForm(obj) {
           />
         </FloatingLabel>
 
+        <FloatingLabel controlId="floatingInput1" label="Role" className="mb-3">
+          <Form.Control
+            type="text"
+            placeholder="Role"
+            name="role"
+            value={formInput.role}
+            onChange={handleChange}
+            required
+          />
+        </FloatingLabel>
+
         {/* Production SELECT  */}
         <FloatingLabel controlId="floatingSelect" label="Production">
           <Form.Select
@@ -105,6 +107,21 @@ export default function CreateAdminForm(obj) {
           </Form.Select>
         </FloatingLabel>
 
+        <Form.Check
+          className="text-black mb-3"
+          type="switch"
+          id="debut"
+          name="debut"
+          label="Debut?"
+          checked={formInput.debut}
+          onChange={(e) => {
+            setFormInput((prevState) => ({
+              ...prevState,
+              petsAllowed: e.target.checked,
+            }));
+          }}
+        />
+
         <Button type="submit">{obj.firebaseKey} Create Account</Button>
 
       </Form>
@@ -112,13 +129,15 @@ export default function CreateAdminForm(obj) {
   );
 }
 
-CreateAdminForm.propTypes = {
+CreateUserForm.propTypes = {
   obj: PropTypes.shape({
     name: PropTypes.string,
     email: PropTypes.string,
+    role: PropTypes.string,
+    debut: PropTypes.bool,
   }),
 };
 
-CreateAdminForm.defaultProps = {
+CreateUserForm.defaultProps = {
   obj: initialState,
 };
