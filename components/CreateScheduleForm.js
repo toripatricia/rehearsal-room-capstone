@@ -620,14 +620,14 @@ function CreateScheduleForm({ obj }) {
       <FloatingLabel controlId="floatingInput3" label="Event 5 Members" className="mb-3">
         <Form.Control
           placeholder="Event 5 Members"
-          name="eventOneMembers"
+          name="eventFiveMembers"
           value={formInput.eventFiveMembers}
           onChange={handleChange}
           required
         />
       </FloatingLabel>
 
-      {/* Event 1 Start Time SELECT  */}
+      {/* Event 6 Start Time SELECT  */}
       <FloatingLabel controlId="floatingSelect" label="Event 6 Start Time">
         <Form.Select
           aria-label="event 6 start time"

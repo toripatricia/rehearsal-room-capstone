@@ -19,34 +19,44 @@ function ScheduleCard() {
     <>
       <Link href="/schedule" passHref>
         <Card style={{
-          height: '800px',
+          display: 'flex',
+          justifyContent: 'center',
+          height: '950px',
           width: '400px',
           margin: '10px',
           cursor: 'pointer',
         }}
         >
           <Card.Body>
-            <Card.Title style={{ minHeight: '20px', fontFamily: 'Gill Sans' }}>{scheduleObj?.date}</Card.Title>
-            <p className="card-text bold" style={{ fontFamily: 'Gill Sans' }}>{scheduleObj?.eventOneStartTime} - {scheduleObj?.eventOneEndTime}</p>
+            <Card.Title style={{
+              display: 'flex',
+              justifyContent: 'center',
+              minHeight: '20px',
+              fontFamily: 'Gill Sans',
+              fontSize: '40px',
+            }}
+            >{scheduleObj?.date}
+            </Card.Title>
+            <p className="card-text bold" style={{ fontFamily: 'Gill Sans', fontSize: '25px' }}>{scheduleObj?.eventOneStartTime} - {scheduleObj?.eventOneEndTime}</p>
             <p className="card-text bold" style={{ fontFamily: 'Gill Sans' }}>{scheduleObj?.eventOneName}</p>
             <p className="card-text bold" style={{ fontFamily: 'Gill Sans' }}>{scheduleObj?.eventOneMembers}</p>
-            <p className="card-text bold" style={{ fontFamily: 'Gill Sans' }}>{scheduleObj?.eventTwoStartTime} - {scheduleObj?.eventTwoEndTime}</p>
+            <p className="card-text bold" style={{ fontFamily: 'Gill Sans', fontSize: '25px' }}>{scheduleObj?.eventTwoStartTime} - {scheduleObj?.eventTwoEndTime}</p>
             <p className="card-text bold" style={{ fontFamily: 'Gill Sans' }}>{scheduleObj?.eventTwoName}</p>
             <p className="card-text bold" style={{ fontFamily: 'Gill Sans' }}>{scheduleObj?.eventTwoMembers}</p>
-            <p className="card-text bold" style={{ fontFamily: 'Gill Sans' }}>{scheduleObj?.eventThreeStartTime} - {scheduleObj?.eventThreeEndTime}</p>
+            <p className="card-text bold" style={{ fontFamily: 'Gill Sans', fontSize: '25px' }}>{scheduleObj?.eventThreeStartTime} - {scheduleObj?.eventThreeEndTime}</p>
             <p className="card-text bold" style={{ fontFamily: 'Gill Sans' }}>{scheduleObj?.eventThreeName}</p>
             <p className="card-text bold" style={{ fontFamily: 'Gill Sans' }}>{scheduleObj?.eventThreeMembers}</p>
-            <p className="card-text bold" style={{ fontFamily: 'Gill Sans' }}>{scheduleObj?.eventFourStartTime} - {scheduleObj?.eventFourEndTime}</p>
+            <p className="card-text bold" style={{ fontFamily: 'Gill Sans', fontSize: '25px' }}>{scheduleObj?.eventFourStartTime} - {scheduleObj?.eventFourEndTime}</p>
             <p className="card-text bold" style={{ fontFamily: 'Gill Sans' }}>{scheduleObj?.eventFourName}</p>
             <p className="card-text bold" style={{ fontFamily: 'Gill Sans' }}>{scheduleObj?.eventFourMembers}</p>
-            <p className="card-text bold" style={{ fontFamily: 'Gill Sans' }}>{scheduleObj?.eventFiveStartTime} - {scheduleObj?.eventFiveEndTime}</p>
+            <p className="card-text bold" style={{ fontFamily: 'Gill Sans', fontSize: '25px' }}>{scheduleObj?.eventFiveStartTime} - {scheduleObj?.eventFiveEndTime}</p>
             <p className="card-text bold" style={{ fontFamily: 'Gill Sans' }}>{scheduleObj?.eventFiveName}</p>
             <p className="card-text bold" style={{ fontFamily: 'Gill Sans' }}>{scheduleObj?.eventFiveMembers}</p>
-            <p className="card-text bold" style={{ fontFamily: 'Gill Sans' }}>{scheduleObj?.eventSixStartTime} - {scheduleObj?.eventSixEndTime}</p>
+            <p className="card-text bold" style={{ fontFamily: 'Gill Sans', fontSize: '25px' }}>{scheduleObj?.eventSixStartTime} - {scheduleObj?.eventSixEndTime}</p>
             <p className="card-text bold" style={{ fontFamily: 'Gill Sans' }}>{scheduleObj?.eventSixName}</p>
             <p className="card-text bold" style={{ fontFamily: 'Gill Sans' }}>{scheduleObj?.eventSixMembers}</p>
           </Card.Body>
-          <Card.Footer className="text-muted">
+          <Card.Footer className="text-muted" style={{ height: '60px' }}>
             <Link href={`/schedule/edit/${scheduleObj?.firebaseKey}`} passHref>
               <Button variant="info" style={{ background: 'black', color: 'white', border: 'black' }}>EDIT</Button>
             </Link>
