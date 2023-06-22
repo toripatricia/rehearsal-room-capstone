@@ -30,8 +30,8 @@ export default function NavBar() {
             <Link passHref href="/adminForm">
               <Nav.Link>Admin Sign Up</Nav.Link>
             </Link>
-            <Link passHref href="/userForm">
-              <Nav.Link>User Sign Up</Nav.Link>
+            <Link passHref href="/SelectAccountType">
+              <Nav.Link>Select account</Nav.Link>
             </Link>
             <Link passHref href="/createSchedule">
               <Nav.Link>Create Daily Schedule</Nav.Link>

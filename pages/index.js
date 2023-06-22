@@ -1,25 +1,29 @@
 // import { Button } from 'react-bootstrap'; // TODO: COMMENT IN FOR AUTH
 // import { signOut } from '../utils/auth'; // TODO: COMMENT IN FOR AUTH
-import { useAuth } from '../utils/context/authContext'; // TODO: COMMENT IN FOR AUTH
+import { useState, useEffect } from 'react';
+import { useRouter } from 'next/router';
+import { getAdminByUid } from '../api/adminData';
+import { useAuth } from '../utils/context/authContext';
+// TODO: COMMENT IN FOR AUTH
 
-function Home() {
+export default function Home() {
   const { user } = useAuth();
-
-  // const user = { displayName: 'Dr. T' }; // TODO: COMMENT OUT FOR AUTH
-
+  const router = useRouter();
+  const [admin, setAdmin] = useState(null);
+  useEffect(() => {
+    getAdminByUid(user.uid).then(setAdmin);
+  }, [user]);
+  if (admin === null) {
+    return (
+      <div />
+    );
+  }
+  if (admin.uid !== user.uid) {
+    router.push('/SelectAccountType');
+  }
   return (
-    <div
-      className="text-center d-flex flex-column justify-content-center align-content-center"
-      style={{
-        height: '90vh',
-        padding: '30px',
-        maxWidth: '400px',
-        margin: '0 auto',
-      }}
-    >
-      <h1 style={{ color: 'white' }}>Hello {user.displayName}! </h1>
+    <div>
+      <h1 style={{ color: 'white' }}>Welcome to your account, {user.displayName}!</h1>
     </div>
   );
 }
-
-export default Home;
