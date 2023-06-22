@@ -44,7 +44,7 @@ export default function CreateAdminForm(obj) {
     } else {
       const payload = { ...formInput, uid: user.uid };
       getAdminByUid(user.uid).then((clientExist) => {
-        if (clientExist.length > 0) {
+        if (clientExist) {
           window.confirm('You already have an account, you will be logged in!');
         } else {
           createAdmin(payload).then(({ name }) => {
