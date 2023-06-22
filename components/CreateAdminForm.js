@@ -8,7 +8,9 @@ import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import { Form, Button } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 import { useAuth } from '../utils/context/authContext';
-import { createAdmin, getSingleAdmin, updateAdmin } from '../api/adminData';
+import {
+  createAdmin, getSingleAdmin, updateAdmin, getAdminByUid,
+} from '../api/adminData';
 // import { getAllProductions } from '../api/productionData';
 
 const initialState = {
@@ -41,11 +43,17 @@ export default function CreateAdminForm(obj) {
       getSingleAdmin().then(() => router.push('/'));
     } else {
       const payload = { ...formInput, uid: user.uid };
-      createAdmin(payload).then(({ name }) => {
-        const patchPayload = { firebaseKey: name };
-        updateAdmin(patchPayload).then(() => {
-          router.push('/');
-        });
+      getAdminByUid(user.uid).then((clientExist) => {
+        if (clientExist.length > 0) {
+          window.confirm('You already have an account, you will be logged in!');
+        } else {
+          createAdmin(payload).then(({ name }) => {
+            const patchPayload = { firebaseKey: name };
+            updateAdmin(patchPayload).then(() => {
+              router.push('/');
+            });
+          });
+        }
       });
     }
   };
@@ -64,7 +72,7 @@ export default function CreateAdminForm(obj) {
         <h1>Admin Registration</h1>
       </div>
       <Form onSubmit={handleSubmit}>
-        <h2 className="text-black mt-5">Create Your Profile</h2>
+        <h2 className="text-white mt-5">Create Your Profile</h2>
 
         {/* Name INPUT  */}
         <FloatingLabel controlId="floatingInput1" label="Full Name" className="mb-3">

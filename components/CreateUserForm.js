@@ -55,7 +55,7 @@ export default function CreateUserForm(obj) {
         <h1>User Registration</h1>
       </div>
       <Form onSubmit={handleSubmit}>
-        <h2 className="text-black mt-5">Create Your Profile</h2>
+        <h2 className="text-white mt-5">Create Your Profile</h2>
 
         {/* Name INPUT  */}
         <FloatingLabel controlId="floatingInput1" label="Full Name" className="mb-3">

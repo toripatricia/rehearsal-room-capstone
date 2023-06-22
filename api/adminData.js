@@ -73,6 +73,18 @@ const getSingleAdmin = (firebaseKey) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
+const getAdminByUid = (uid) => new Promise((resolve, reject) => {
+  fetch(`${dbUrl}/admin.json?orderBy="uid"&equalTo="${uid}"`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => resolve(Object.values(data)[0]))
+    .catch(reject);
+});
+
 export {
-  createAdmin, updateAdmin, deleteAdmin, getProductionsAdmin, getSingleAdmin,
+  createAdmin, updateAdmin, deleteAdmin, getProductionsAdmin, getSingleAdmin, getAdminByUid,
 };
