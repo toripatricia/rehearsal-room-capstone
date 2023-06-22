@@ -18,7 +18,7 @@ export default function Home() {
       <div />
     );
   }
-  if (admin.uid !== user.uid) {
+  if (admin?.uid !== user.uid) {
     router.push('/SelectAccountType');
   }
   return (
