@@ -15,12 +15,16 @@ function SelectAccountType() {
       }}
     >
       <h1 style={{ color: 'white' }}>Hello {user.displayName}! </h1>
-      <Link passHref href="/adminForm">
-        <Button>Create Admin Account</Button>
-      </Link>
-      <Link passHref href="/userForm">
-        <Button>Create User Account</Button>
-      </Link>
+      <div style={{ marginTop: '15px', marginBottom: '10px' }}>
+        <Link passHref href="/adminForm">
+          <Button>Create Admin Account</Button>
+        </Link>
+      </div>
+      <div style={{ marginTop: '10px' }}>
+        <Link passHref href="/userForm">
+          <Button>Create User Account</Button>
+        </Link>
+      </div>
     </div>
   );
 }

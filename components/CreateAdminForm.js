@@ -99,9 +99,9 @@ export default function CreateAdminForm(obj) {
         </FloatingLabel>
 
         {/* Production SELECT  */}
-        <FloatingLabel controlId="floatingSelect" label="Production">
+        <FloatingLabel controlId="floatingSelect" label="Production or Company">
           <Form.Select
-            aria-label="Production"
+            aria-label="Production or Company"
             name="productionId"
             onChange={handleChange}
             className="mb-3"

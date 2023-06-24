@@ -1,6 +1,8 @@
 // import { Button } from 'react-bootstrap'; // TODO: COMMENT IN FOR AUTH
 // import { signOut } from '../utils/auth'; // TODO: COMMENT IN FOR AUTH
 import { useState, useEffect } from 'react';
+import { Button } from 'react-bootstrap';
+import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { getAdminByUid } from '../api/adminData';
 import { useAuth } from '../utils/context/authContext';
@@ -23,7 +25,14 @@ export default function Home() {
   }
   return (
     <div>
-      <h1 style={{ color: 'white' }}>Welcome to your account, {user.displayName}!</h1>
+      <center>
+        <h1 style={{ color: 'white', marginTop: '100px' }}>Welcome to your account, {user.displayName}!</h1>
+        <div style={{ marginTop: '20px' }}>
+          <Link passHref href="/createSchedule">
+            <Button>Create Schedule</Button>
+          </Link>
+        </div>
+      </center>
     </div>
   );
 }
