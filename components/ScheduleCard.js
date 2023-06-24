@@ -21,7 +21,7 @@ function ScheduleCard() {
         <Card style={{
           display: 'flex',
           justifyContent: 'center',
-          height: '950px',
+          height: '1100px',
           width: '400px',
           margin: '10px',
           cursor: 'pointer',
@@ -38,22 +38,22 @@ function ScheduleCard() {
             >{scheduleObj?.date}
             </Card.Title>
             <p className="card-text bold" style={{ fontFamily: 'Gill Sans', fontSize: '25px' }}>{scheduleObj?.eventOneStartTime} - {scheduleObj?.eventOneEndTime}</p>
-            <p className="card-text bold" style={{ fontFamily: 'Gill Sans' }}>{scheduleObj?.eventOneName}</p>
+            <p className="card-text bold" style={{ fontFamily: 'Gill Sans', fontSize: '20px' }}>{scheduleObj?.eventOneName}</p>
             <p className="card-text bold" style={{ fontFamily: 'Gill Sans' }}>{scheduleObj?.eventOneMembers}</p>
             <p className="card-text bold" style={{ fontFamily: 'Gill Sans', fontSize: '25px' }}>{scheduleObj?.eventTwoStartTime} - {scheduleObj?.eventTwoEndTime}</p>
-            <p className="card-text bold" style={{ fontFamily: 'Gill Sans' }}>{scheduleObj?.eventTwoName}</p>
+            <p className="card-text bold" style={{ fontFamily: 'Gill Sans', fontSize: '20px' }}>{scheduleObj?.eventTwoName}</p>
             <p className="card-text bold" style={{ fontFamily: 'Gill Sans' }}>{scheduleObj?.eventTwoMembers}</p>
             <p className="card-text bold" style={{ fontFamily: 'Gill Sans', fontSize: '25px' }}>{scheduleObj?.eventThreeStartTime} - {scheduleObj?.eventThreeEndTime}</p>
-            <p className="card-text bold" style={{ fontFamily: 'Gill Sans' }}>{scheduleObj?.eventThreeName}</p>
+            <p className="card-text bold" style={{ fontFamily: 'Gill Sans', fontSize: '20px' }}>{scheduleObj?.eventThreeName}</p>
             <p className="card-text bold" style={{ fontFamily: 'Gill Sans' }}>{scheduleObj?.eventThreeMembers}</p>
             <p className="card-text bold" style={{ fontFamily: 'Gill Sans', fontSize: '25px' }}>{scheduleObj?.eventFourStartTime} - {scheduleObj?.eventFourEndTime}</p>
-            <p className="card-text bold" style={{ fontFamily: 'Gill Sans' }}>{scheduleObj?.eventFourName}</p>
+            <p className="card-text bold" style={{ fontFamily: 'Gill Sans', fontSize: '20px' }}>{scheduleObj?.eventFourName}</p>
             <p className="card-text bold" style={{ fontFamily: 'Gill Sans' }}>{scheduleObj?.eventFourMembers}</p>
             <p className="card-text bold" style={{ fontFamily: 'Gill Sans', fontSize: '25px' }}>{scheduleObj?.eventFiveStartTime} - {scheduleObj?.eventFiveEndTime}</p>
-            <p className="card-text bold" style={{ fontFamily: 'Gill Sans' }}>{scheduleObj?.eventFiveName}</p>
+            <p className="card-text bold" style={{ fontFamily: 'Gill Sans', fontSize: '20px' }}>{scheduleObj?.eventFiveName}</p>
             <p className="card-text bold" style={{ fontFamily: 'Gill Sans' }}>{scheduleObj?.eventFiveMembers}</p>
             <p className="card-text bold" style={{ fontFamily: 'Gill Sans', fontSize: '25px' }}>{scheduleObj?.eventSixStartTime} - {scheduleObj?.eventSixEndTime}</p>
-            <p className="card-text bold" style={{ fontFamily: 'Gill Sans' }}>{scheduleObj?.eventSixName}</p>
+            <p className="card-text bold" style={{ fontFamily: 'Gill Sans', fontSize: '20px' }}>{scheduleObj?.eventSixName}</p>
             <p className="card-text bold" style={{ fontFamily: 'Gill Sans' }}>{scheduleObj?.eventSixMembers}</p>
           </Card.Body>
           <Card.Footer className="text-muted" style={{ height: '60px' }}>
