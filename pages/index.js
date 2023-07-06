@@ -32,6 +32,12 @@ export default function Home() {
             <Button>Create Schedule</Button>
           </Link>
         </div>
+        <div style={{ marginTop: '20px' }}>
+          <Link passHref href="/directory">
+            <Button>View Directory</Button>
+          </Link>
+        </div>
+
       </center>
     </div>
   );

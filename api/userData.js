@@ -2,6 +2,24 @@ import { clientCredentials } from '../utils/client';
 
 const dbUrl = clientCredentials.databaseURL;
 
+const getAllUsers = () => new Promise((resolve, reject) => {
+  fetch(`${dbUrl}/users.json`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      if (data) {
+        resolve(Object.values(data));
+      } else {
+        resolve([]);
+      }
+    })
+    .catch(reject);
+});
+
 const createUser = (payload) => new Promise((resolve, reject) => {
   fetch(`${dbUrl}/users.json`, {
     method: 'POST',
@@ -74,5 +92,5 @@ const getSingleUser = (firebaseKey) => new Promise((resolve, reject) => {
 });
 
 export {
-  createUser, updateUser, deleteUser, getProductionsUsers, getSingleUser,
+  createUser, getAllUsers, updateUser, deleteUser, getProductionsUsers, getSingleUser,
 };
