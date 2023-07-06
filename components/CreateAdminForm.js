@@ -98,6 +98,18 @@ export default function CreateAdminForm(obj) {
           />
         </FloatingLabel>
 
+        {/* ROLE INPUT  */}
+        <FloatingLabel controlId="floatingInput1" label="Role" className="mb-3">
+          <Form.Control
+            type="text"
+            placeholder="Role at company"
+            name="role"
+            value={formInput.role}
+            onChange={handleChange}
+            required
+          />
+        </FloatingLabel>
+
         {/* Production SELECT  */}
         <FloatingLabel controlId="floatingSelect" label="Production or Company">
           <Form.Select

@@ -2,6 +2,24 @@ import { clientCredentials } from '../utils/client';
 
 const dbUrl = clientCredentials.databaseURL;
 
+const getAllAdmin = () => new Promise((resolve, reject) => {
+  fetch(`${dbUrl}/admin.json`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      if (data) {
+        resolve(Object.values(data));
+      } else {
+        resolve([]);
+      }
+    })
+    .catch(reject);
+});
+
 const createAdmin = (payload) => new Promise((resolve, reject) => {
   fetch(`${dbUrl}/admin.json`, {
     method: 'POST',
@@ -86,5 +104,5 @@ const getAdminByUid = (uid) => new Promise((resolve, reject) => {
 });
 
 export {
-  createAdmin, updateAdmin, deleteAdmin, getProductionsAdmin, getSingleAdmin, getAdminByUid,
+  createAdmin, updateAdmin, getAllAdmin, deleteAdmin, getProductionsAdmin, getSingleAdmin, getAdminByUid,
 };

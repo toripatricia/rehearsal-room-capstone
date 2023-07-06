@@ -35,6 +35,9 @@ export default function NavBar() {
             <Link passHref href="/schedule">
               <Nav.Link>View Daily Schedule</Nav.Link>
             </Link>
+            <Link passHref href="/directory">
+              <Nav.Link>Directory</Nav.Link>
+            </Link>
             <div style={{ marginLeft: '300px', marginTop: '10px' }}>
               <Button variant="danger" onClick={signOut}>Sign Out</Button>
             </div>
